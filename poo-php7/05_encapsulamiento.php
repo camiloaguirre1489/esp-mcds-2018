@@ -10,10 +10,10 @@ class Usuario{
 	}
 
 
-	public funCtion getNombre(){
+	public function getNombre(){
 		return $this->nombre;
 	}
-}	public funCtion getGenero(){
+}	public function getGenero(){
 		return $this->genero;
 	}
 		
