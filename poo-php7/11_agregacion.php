@@ -53,10 +53,4 @@ echo "\nEmail Autor: ".$libro->getAutor()->getEmail()."\n";
 echo "\n========================================="."\n";
 
 
-
-
-
-
-
-
 ?>
