@@ -9,7 +9,8 @@ class Controller{
 	}
 
 	public function home(){
-		$datos = $this->model->getInfo();
+		//$datos = $this->model->getInfo();
+		$datos = $this->model->getAllUsers();
 		$this->load->view('home.php', $datos);
 	}
 }
