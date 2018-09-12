@@ -13,19 +13,7 @@
 			$this->nmdb = $n;
 		}
 
-		public function getAllUsers() {
-		try {
-			$sql = "SELECT * FROM users";
-			$stm = $this->conx->prepare($sql);
-			$stm->execute();
-			return $stm->fetchAll();
-
-		} catch (PDOException $e) {
-			echo $e->getMessage();
-		}
-
-	}
-
+		
 		public function connection() {
 			try {
 				$this->conx = new PDO("mysql:host=$this->host;dbname=$this->nmdb",$this->user,$this->pass);
