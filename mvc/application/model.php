@@ -17,7 +17,7 @@ class Model extends DataBase {
 
 		);
 	}
-
+//comentario para prueba
 	public function getAllUsers() {
 		try {
 			$sql = "SELECT * FROM users";
