@@ -1,0 +1,28 @@
+.btn-instalara,
+.btn-outline-top-instalara {
+	background-color: #fff;
+	color: #00c2cb;
+	border-radius: 25px;
+	margin-left: 4px;
+	transition: all 0.5s;
+}
+.btn-instalara:hover,
+.btn-outline-top-instalara:hover {
+	background-color: #00c2cb;
+	color: #fff;
+}
+
+.card-header-instalara{
+	background-color: #00c2cb;
+	border-bottom: 2px solid rgba(0,0,0,.150);
+	color: #fff;
+
+}
+
+.btn-link-instalara{
+	color: #00c2cb;
+}
+
+.btn-link-instalara:hover{
+	color: #049999;
+}
