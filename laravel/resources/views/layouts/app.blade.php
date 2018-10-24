@@ -9,12 +9,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fonts/fonts.css') }}" rel="stylesheet" type="text/css">
+
+    {{-- FontAwesome --}}
+    <link href="{{ asset('css/fontawesome.all.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -54,20 +53,18 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ asset(Auth::user()->photo) }}" width="46px">
+                                    <img src="{{ asset(Auth::user()->photo) }}" width="76px">
                                     {{ Auth::user()->nickname }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        Mi Perfil
-                                    </a>
+                                    <a class="dropdown-item" href="{{ route('home') }}"> Mi Perfil </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Cerrar Sesion
+                                        Cerrar Sesión
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -88,5 +85,21 @@
             &copy; Todos los derechos reservados {{ date('Y') }}
         </footer>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            $('.btn-upload').click(function(event) {
+                $(this).prev().click();
+            });
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            @if(session('status'))
+                swal('Felicitaciones!', '{{ session('status') }}','success');
+            @endif
+
+        });
+    </script>
 </body>
 </html>

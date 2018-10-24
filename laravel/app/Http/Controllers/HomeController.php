@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Photo;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -13,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['profile']]);
     }
 
     /**
@@ -23,6 +26,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $photos = Photo::where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
+        return view('home')->with('photos', $photos);
+    }
+
+    public function profile($nickname) {
+        $user = User::where('nickname', '=', $nickname)->first();
+        if($user) {
+            $photos = Photo::where('user_id', '=', $user->id)->orderBy('id', 'desc')->get();
+            return view('profile')->with('user', $user)->with('photos', $photos);
+        } else {
+            return abort(404);
+        }
+        
     }
 }
